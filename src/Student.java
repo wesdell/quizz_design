@@ -14,7 +14,7 @@ public class Student {
   public void answer(int... answers) {
     grade = quiz.getGrade(answers);
   }
-  
+
   public String printGrade() {
     return name + " obtuvo la calificacion de " + grade + "/" + quiz.getQuizPoints() + " en " + quiz;
   }

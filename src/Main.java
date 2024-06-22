@@ -5,7 +5,7 @@ public class Main {
             new MultipleChoiceQuestion(
                     "Pregunta 1",
                     new CorrectOption("opción 1"),
-                    new Option("opción 2"),
+                    new Opgittion("opción 2"),
                     new Option("opción 3"),
                     new Option("opción 4")
             ));
