@@ -1,0 +1,48 @@
+@startuml
+class Quiz {
+- questionCounter : int
+- name : String
+-questions[] : Question
++ addQuestion(Question question) : void
++ getGrade(int[] answers) : double
++ getQuizPoints() : int
+}
+
+class Student {
+- grade : double
+- name : String
+- quiz : Quiz
++ setQuiz(Quiz quiz) : void
++ answer() : void
++ printGrade() : String
+}
+
+abstract class Question {
+- points : int
+- statement : String
+- options[] : Option
++ grade(int answer) : double
+}
+
+class MultipleChoiceQuestion
+
+class TrueFalseQuestion {
++ parseToOptions(Sele sele) : Option[]
+}
+
+class Option {
+- statement : Object
+}
+
+class CorrectOption
+
+enum Selection {
++ TRUE
++ FALSE
+}
+
+MultipleChoiceQuestion --|> Question
+TrueFalseQuestion --|> Question
+
+CorrectOption --|> Option
+@enduml
