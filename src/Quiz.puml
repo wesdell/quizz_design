@@ -1,4 +1,9 @@
 @startuml
+enum Selection {
++ TRUE
++ FALSE
+}
+
 class Quiz {
 - questionCounter : int
 - name : String
@@ -27,7 +32,7 @@ abstract class Question {
 class MultipleChoiceQuestion
 
 class TrueFalseQuestion {
-+ parseToOptions(Sele sele) : Option[]
++ parseToOptions(Selection selection) : Option[]
 }
 
 class Option {
@@ -35,11 +40,6 @@ class Option {
 }
 
 class CorrectOption
-
-enum Selection {
-+ TRUE
-+ FALSE
-}
 
 MultipleChoiceQuestion --|> Question
 TrueFalseQuestion --|> Question
