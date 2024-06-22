@@ -16,7 +16,7 @@ public class Quiz {
     double grade = 0.0;
     int i = 0;
     for (Question question : questions) {
-      grade += question.garde(answers[i++]);
+      grade += question.grade(answers[i++]);
     }
     return grade;
   }
