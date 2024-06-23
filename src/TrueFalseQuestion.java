@@ -1,5 +1,5 @@
 public class TrueFalseQuestion extends Question {
-  public TrueFalseQuestion(String statement, Selection selection) {
+  public TrueFalseQuestion(Statement statement, Selection selection) {
     super(statement, parseToOptions(selection));
   }
 
@@ -8,9 +8,9 @@ public class TrueFalseQuestion extends Question {
     int i = 0;
     for (Selection option : selection.getClass().getEnumConstants()) {
       if (option == selection) {
-        options[i++] = new CorrectOption(selection);
+        options[i++] = new CorrectOption(new Statement(option));
       } else {
-        options[i++] = new Option(selection);
+        options[i++] = new Option(new Statement(option));
       }
     }
     return options;

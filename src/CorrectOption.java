@@ -1,5 +1,5 @@
 public class CorrectOption extends Option {
-  public CorrectOption(Object statement) {
+  public CorrectOption(Statement statement) {
     super(statement);
   }
 }

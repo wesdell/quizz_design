@@ -9,6 +9,9 @@ public class Quiz {
   }
 
   public void addQuestion(Question question) {
+    if (questionCounter >= questions.length) {
+      throw new Error();
+    }
     questions[questionCounter++] = question;
   }
 
@@ -23,6 +26,19 @@ public class Quiz {
 
   public int getQuizPoints() {
     return questions.length;
+  }
+
+  public int getQuestionCounter() {
+    return questionCounter;
+  }
+
+  public String printQuiz() {
+    StringBuilder accumulator = new StringBuilder();
+    for (Question question : questions) {
+      accumulator.append(question.getStatement()).append("\n");
+      accumulator.append(question.printOptions());
+    }
+    return accumulator.toString();
   }
 
   @Override

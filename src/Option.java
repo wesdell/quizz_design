@@ -1,7 +1,16 @@
 public class Option {
-  private Object statement;
+  private Statement statement;
 
-  public Option(Object statement) {
+  public Option(Statement statement) {
     this.statement = statement;
+  }
+
+  public Statement getStatement() {
+    return statement;
+  }
+
+  @Override
+  public String toString() {
+    return statement.toString();
   }
 }
