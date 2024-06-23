@@ -3,7 +3,7 @@ public class TrueFalseQuestion extends Question {
     super(statement, parseToOptions(selection));
   }
 
-  public static Option[] parseToOptions(Selection selection) {
+  private static Option[] parseToOptions(Selection selection) {
     Option[] options = new Option[selection.getClass().getEnumConstants().length];
     int i = 0;
     for (Selection option : selection.getClass().getEnumConstants()) {

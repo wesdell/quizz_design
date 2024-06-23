@@ -24,7 +24,7 @@ public class Quiz {
     return grade;
   }
 
-  public int getQuizPoints() {
+  public double getQuizPoints() {
     return questions.length;
   }
 

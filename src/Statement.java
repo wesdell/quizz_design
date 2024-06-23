@@ -6,7 +6,7 @@ public class Statement {
   }
 
   public Statement(Selection selection) {
-    this.content = selection.toString();
+    content = selection.toString();
   }
 
   @Override
