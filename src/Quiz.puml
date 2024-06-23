@@ -1,48 +1,62 @@
 @startuml
-enum Selection {
-+ TRUE
-+ FALSE
-}
-
-class Quiz {
-- questionCounter : int
-- name : String
--questions[] : Question
-+ addQuestion(Question question) : void
-+ getGrade(int[] answers) : double
-+ getQuizPoints() : int
-}
-
-class Student {
-- grade : double
-- name : String
-- quiz : Quiz
-+ setQuiz(Quiz quiz) : void
-+ answer() : void
-+ printGrade() : String
-}
-
-abstract class Question {
-- points : int
-- statement : String
-- options[] : Option
-+ grade(int answer) : double
-}
+class CorrectOption
 
 class MultipleChoiceQuestion
 
-class TrueFalseQuestion {
-+ parseToOptions(Selection selection) : Option[]
-}
-
 class Option {
-- statement : Object
+  - statement: Statement
+  + getStatement(): Statement
+  + toString(): String
 }
 
-class CorrectOption
+class Question {
+  - score: int
+  - statement: Statement
+  - options: Option[]
+  + grade(int): double
+  + getStatement(): Statement
+  + printOptions(): String
+}
 
-MultipleChoiceQuestion --|> Question
-TrueFalseQuestion --|> Question
+class Quiz {
+  - questionCounter: int
+  - name: String
+  - questions: Question[]
+  + getQuizPoints(): int
+  + toString(): String
+  + addQuestion(Question): void
+  + getGrade(int[]): double
+  + getQuestionCounter(): int
+  + printQuiz(): String
+}
 
-CorrectOption --|> Option
+enum Selection {
+  + TRUE:
+  + FALSE:
+  + values(): Selection[]
+  + valueOf(String): Selection
+}
+
+class Statement {
+  - content: String
+  + toString(): String
+}
+
+class Student {
+  - name: String
+  - quiz: Quiz
+  - grade: double
+  + printGrade(): String
+  + answer(int[]): void
+  + setQuiz(Quiz): void
+}
+
+class TrueFalseQuestion {
+  + parseToOptions(Selection): Option[]
+}
+
+CorrectOption           --|>  Option
+
+MultipleChoiceQuestion  --|>  Question
+TrueFalseQuestion       --|>  Question
 @enduml
