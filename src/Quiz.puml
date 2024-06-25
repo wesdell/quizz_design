@@ -55,8 +55,22 @@ class TrueFalseQuestion {
   + parseToOptions(Selection): Option[]
 }
 
+class MatchingQuestion {
+  - columnA: MatchingColumn
+  - columnB: MatchingColumn
+  + getColumns(): MatchingColumn[]
+  + printOptions(): String
+}
+
+class MatchingColumn {
+  - options: MatchingColumnOption[]
+  + getOptions(): Option[]
+  + toString(): String
+}
+
 CorrectOption           --|>  Option
 
 MultipleChoiceQuestion  --|>  Question
 TrueFalseQuestion       --|>  Question
+MatchingQuestion        --|>  Question
 @enduml
