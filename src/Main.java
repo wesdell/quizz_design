@@ -5,16 +5,14 @@ public class Main {
             new MultipleChoiceQuestion(
                     new Statement("Pregunta 1"),
                     new CorrectOption(new Statement("opción 1")),
-                    new Option(new Statement("opción 2")),
-                    new Option(new Statement("opción 3")),
-                    new Option(new Statement("opción 4"))
+                    new Option(new Statement("opcion 2")),
+                    new Option(new Statement("opcion 3"))
             ));
     quiz.addQuestion(
             new TrueFalseQuestion(
                     new Statement("Pregunta 2"),
                     Selection.TRUE
             ));
-
     Student student = new Student("ESGP");
     student.setQuiz(quiz);
     student.answer(2, 1);

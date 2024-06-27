@@ -1,18 +1,15 @@
+import java.util.ArrayList;
+
 public class Quiz {
   private final String name;
-  private final Question[] questions;
-  private int questionCounter;
+  private final ArrayList<Question> questions = new ArrayList<Question>();
 
   public Quiz(String name) {
     this.name = name;
-    questions = new Question[2];
   }
 
   public void addQuestion(Question question) {
-    if (questionCounter >= questions.length) {
-      throw new Error();
-    }
-    questions[questionCounter++] = question;
+    questions.add(question);
   }
 
   public double getGrade(int[] answers) {
@@ -25,11 +22,11 @@ public class Quiz {
   }
 
   public double getQuizPoints() {
-    return questions.length;
+    return questions.size();
   }
 
-  public int getQuestionCounter() {
-    return questionCounter;
+  public int getNumberQuestion() {
+    return questions.size();
   }
 
   public String printQuiz() {

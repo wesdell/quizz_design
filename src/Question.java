@@ -1,9 +1,11 @@
+import java.util.ArrayList;
+
 public abstract class Question {
   private final int score;
   private final Statement statement;
-  private final Option[] options;
+  private final ArrayList<Object> options;
 
-  public Question(Statement statement, Option... options) {
+  public Question(Statement statement, ArrayList<Object> options) {
     this.statement = statement;
     this.options = options;
     checkOneCorrectOption(options);
@@ -11,12 +13,12 @@ public abstract class Question {
   }
 
   public double grade(int answer) {
-    return (options[answer - 1] instanceof CorrectOption) ? score : 0;
+    return (options.get(answer - 1) instanceof CorrectOption) ? score : 0;
   }
 
-  private void checkOneCorrectOption(Option[] options) {
+  private void checkOneCorrectOption(ArrayList<Object> options) {
     int correctOptionsCounter = 0;
-    for (Option option : options) {
+    for (Object option : options) {
       if (option instanceof CorrectOption) {
         correctOptionsCounter += 1;
       }
@@ -32,8 +34,8 @@ public abstract class Question {
 
   public String printOptions() {
     StringBuilder accumulator = new StringBuilder();
-    for (Option option : options) {
-      accumulator.append(option.getStatement()).append("\n");
+    for (Object option : options) {
+      accumulator.append(option).append("\n");
     }
     return accumulator.toString();
   }

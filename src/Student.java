@@ -12,7 +12,7 @@ public class Student {
   }
 
   public void answer(int... answers) {
-    if (answers.length > quiz.getQuestionCounter()) {
+    if (answers.length > quiz.getNumberQuestion()) {
       throw new Error();
     }
     grade = quiz.getGrade(answers);
